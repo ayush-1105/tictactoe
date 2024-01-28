@@ -1,28 +1,36 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(180deg, #f4f4f4, #e0e0e0);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(10, 4rem);
-    grid-gap: 0.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(10, 3rem);
+    grid-gap: 0.3rem;
+    margin-top: 1rem;
 }
 
 .cell {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     background-color: #fff;
     border: 2px solid #ccc;
     display: flex;
@@ -30,20 +38,36 @@ body {
     justify-content: center;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
 }
 
 .message {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 button {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-right: 1rem;
     padding: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
 }
 
 .loader {
@@ -82,9 +106,36 @@ footer {
     color: #fff;
     padding: 1rem;
     text-align: center;
+    backdrop-filter: blur(10px);
+    z-index: 1;
 }
 
 footer a {
     color: #fff;
     text-decoration: none;
+}
+
+.firecracker {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.firecracker img {
+    width: 30px;
+    height: auto;
+    display: none;
+}
+
+.firecracker.active img {
+    display: block;
+    animation: firecrackerAnimation 0.8s ease-out;
+}
+
+@keyframes firecrackerAnimation {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    50% { transform: translateY(-50px) rotate(180deg); opacity: 0.5; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 1; }
 }
