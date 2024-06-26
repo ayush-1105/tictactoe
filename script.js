@@ -68,18 +68,18 @@ function undoMove() {
     }
 }
 
-function showLoader() {
-    const loader = document.getElementById('loader');
-    loader.classList.add('active');
+// function showLoader() {
+//     const loader = document.getElementById('loader');
+//     loader.classList.add('active');
 
-    setTimeout(() => {
-        loader.classList.remove('active');
-        document.querySelector('.container').style.display = 'block';
-        document.querySelector('.loader').style.display = 'none';
-    }, 3000);
-}
+//     setTimeout(() => {
+//         loader.classList.remove('active');
+//         document.querySelector('.container').style.display = 'block';
+//         document.querySelector('.loader').style.display = 'none';
+//     }, 3000);
+// }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.container').style.display = 'none';
-    showLoader();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     document.querySelector('.container').style.display = 'none';
+//     showLoader();
+// });
